@@ -6,8 +6,7 @@ using namespace std;
 // menggabungkan 2 subarray yang terurut dari arr[]
 // subarray pertama adalah arr[kiri...mid]
 // subarray kedua adalah arr[tengah+1....kanan]
-void merge(int arr[], int kiri, int tengah, int kanan)
-{
+void merge(int arr[], int kiri, int tengah, int kanan){
     int n1 = tengah - kiri + 1; //size dari subarray pertama
     int n2 = kanan - tengah; //size dari subarray kedua
  
@@ -72,14 +71,12 @@ void mergeSort(int arr[],int left,int right){
     merge(arr,l,m,r);
 }
  
-void printArray(int A[], int size)
-{
+void printArray(int A[], int size){
     for (int i = 0; i < size; i++)
         cout << A[i] << " ";
 }
  
-int main()
-{
+int main(){
     int arr[] = { 12, 11, 13, 5, 6, 7 };
     int arr_size = sizeof(arr) / sizeof(arr[0]);
  
