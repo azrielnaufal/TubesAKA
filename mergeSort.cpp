@@ -66,9 +66,9 @@ void mergeSort(int arr[],int left,int right){
         return;//returns recursively
     }
     int m = (left + right-1)/2;
-    mergeSort(arr,l,m);
-    mergeSort(arr,m+1,r);
-    merge(arr,l,m,r);
+    mergeSort(arr,left,m);
+    mergeSort(arr,m+1,right);
+    merge(arr,l,m,right);
 }
  
 void printArray(int A[], int size){
