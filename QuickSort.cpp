@@ -19,12 +19,15 @@ int partition (int arr[], int low, int high){
     for (int j = low; j <= high - 1; j++){  
         // apabila nilai array pada index ke j lebih kecil dari nilai pivot 
         if (arr[j] < pivot){  
-            i++; // increment index dari elemen terkecil
+            i++;
             swap(&arr[i], &arr[j]);  
         }  
-    }  
-    swap(&arr[i + 1], &arr[high]);  
-    return (i + 1);  
+    }
+    /*memindahkan pivot di tengah array, sehingga semua nilai yang < pivot berada disebelah kiri, 
+    >= pivot berada disebelah kanan 
+    */
+    swap(&arr[i + 1], &arr[high]); 
+    return (i + 1);  // jumlah nilai yang < pivot atau sebelah kiri
 }  
   
 /*

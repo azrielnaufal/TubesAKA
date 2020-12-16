@@ -11,4 +11,3 @@ E. Buat tabel dan grafik yang menggambarkan perubahan running time algoritma ter
 
 https://docs.google.com/document/d/1fLx9TP8kxxrpr_i1nXvJHglBR4rGcCP9zjikcqgvUXY/edit?usp=sharing
 
-tes
