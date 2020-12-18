@@ -1,5 +1,6 @@
 // C++ program untuk algoritma merge sorting && ascending
 
+#include <chrono> 
 #include <iostream>
 using namespace std;
  
@@ -28,7 +29,7 @@ void merge(int arr[], int kiri, int tengah, int kanan){
     int j = 0;
  
     // index di array pengggabungan
-    int k = l;
+    int k = kiri;
  
     while (i < n1 && j < n2) {
         if (Left[i] <= Right[j]) {
@@ -62,13 +63,13 @@ void merge(int arr[], int kiri, int tengah, int kanan){
  
 //Prosedur ini secara rekursif akan melakukan proses divide
 void mergeSort(int arr[],int left,int right){
-    if(l>=r){
+    if(left>=right){
         return;//returns recursively
     }
     int m = (left + right-1)/2;
-    mergeSort(arr,l,m);
-    mergeSort(arr,m+1,r);
-    merge(arr,l,m,r);
+    mergeSort(arr,left,m);
+    mergeSort(arr,m+1,right);
+    merge(arr,left,m,right);
 }
  
 void printArray(int A[], int size){
@@ -77,14 +78,25 @@ void printArray(int A[], int size){
 }
  
 int main(){
-    int arr[] = { 12, 11, 13, 5, 6, 7 };
+    int n;
+    cin>>n;
+    int arr[n];
+    auto t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 0; i < n; i++){
+        arr[i] = rand()%50;
+    }
     int arr_size = sizeof(arr) / sizeof(arr[0]);
  
+    /*
     cout << "Given array is \n";
     printArray(arr, arr_size);
+    */
  
     mergeSort(arr, 0, arr_size - 1);
- 
+    auto t2 = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
+    std::cout << duration;
+    
     cout << "\nSorted array is \n";
     printArray(arr, arr_size);
     return 0;

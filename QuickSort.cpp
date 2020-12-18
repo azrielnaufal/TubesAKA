@@ -1,7 +1,7 @@
 // C++ program untuk algoritma quick sorting && ascending
 #include <bits/stdc++.h> 
 using namespace std;  
-   
+
 void swap(int* a, int* b){  
     int t = *a;  
     *a = *b;  
@@ -53,10 +53,15 @@ void printArray(int arr[], int size){
 }  
   
 int main(){  
-    int arr[] = {10, 7, 8, 9, 1, 5};  
-    int n = sizeof(arr) / sizeof(arr[0]);  
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        arr[i] = rand()%50;
+    }
+    int arr_size = sizeof(arr) / sizeof(arr[0]); 
     quickSort(arr, 0, n - 1);  
     cout << "Sorted array: \n";  
-    printArray(arr, n);  
+    printArray(arr, arr_size);  
     return 0;  
 }  
