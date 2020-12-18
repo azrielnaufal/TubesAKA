@@ -81,23 +81,24 @@ int main(){
     int n;
     cin>>n;
     int arr[n];
-    auto t1 = std::chrono::high_resolution_clock::now();
+
+    auto t1 = std::chrono::steady_clock::now();
     for(int i = 0; i < n; i++){
         arr[i] = rand()%50;
     }
     int arr_size = sizeof(arr) / sizeof(arr[0]);
  
-    /*
     cout << "Given array is \n";
     printArray(arr, arr_size);
-    */
- 
+
     mergeSort(arr, 0, arr_size - 1);
-    auto t2 = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
-    std::cout << duration;
     
     cout << "\nSorted array is \n";
     printArray(arr, arr_size);
+    auto t2 = std::chrono::steady_clock::now();
+    double duration = double(std::chrono::duration_cast<std::chrono::nanoseconds>( t2 - t1 ).count());
+    cout<<endl;
+    std::cout <<"Elapsed Time (s) :"<< duration/1e9 << std::endl;
+    system("pause;");
     return 0;
 }
