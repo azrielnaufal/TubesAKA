@@ -69,7 +69,11 @@ void mergeSort(int arr[],int left,int right){
     int m = (left + right-1)/2;
     mergeSort(arr,left,m);
     mergeSort(arr,m+1,right);
+<<<<<<< HEAD
     merge(arr,left,m,right);
+=======
+    merge(arr,l,m,right);
+>>>>>>> e02c280a493a1c4c0bdecb876187a411270fb92c
 }
  
 void printArray(int A[], int size){
