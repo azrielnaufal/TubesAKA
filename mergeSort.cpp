@@ -61,7 +61,6 @@ void merge(int arr[], int kiri, int tengah, int kanan){
     }
 }
  
-//Prosedur ini secara rekursif akan melakukan proses divide
 void mergeSort(int arr[],int left,int right){
     if(left>=right){
         return;//returns recursively
