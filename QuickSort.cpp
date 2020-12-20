@@ -1,4 +1,5 @@
 // C++ program untuk algoritma quick sorting && ascending
+#include <chrono>
 #include <bits/stdc++.h> 
 using namespace std;  
 
@@ -57,18 +58,24 @@ void printArray(int arr[], int size){
   
 int main(){  
     int n;
+    cout<<"quick sort"<<endl;
     cin>>n;
     int arr[n];
-    auto t1 = std::chrono::high_resolution_clock::now();
+    auto t1 = std::chrono::steady_clock::now();
     for(int i = 0; i < n; i++){
         arr[i] = rand()%50;
     }
     int arr_size = sizeof(arr) / sizeof(arr[0]); 
+    cout << "Given array is \n";
+    printArray(arr, arr_size);
     quickSort(arr, 0, n - 1);  
-     auto t2 = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
-    std::cout << duration<<endl;
     cout << "Sorted array: \n";  
-    printArray(arr, arr_size);  
+    printArray(arr, arr_size); 
+
+    auto t2 = std::chrono::steady_clock::now();
+    auto duration = double(std::chrono::duration_cast<std::chrono::nanoseconds>( t2 - t1 ).count());
+    cout<<endl;
+    std::cout <<"Elapsed Time (s) :"<< duration/1e9 << std::endl;
+    system("pause;");
     return 0;  
 }  

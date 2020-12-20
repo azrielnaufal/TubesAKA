@@ -78,6 +78,7 @@ void printArray(int A[], int size){
  
 int main(){
     int n;
+    cout<<"merge sort"<<endl;
     cin>>n;
     int arr[n];
 
